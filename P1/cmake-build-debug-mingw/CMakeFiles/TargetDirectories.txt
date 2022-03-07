@@ -1,0 +1,4 @@
+C:/Users/brais/OneDrive - Universidade da Coruña/UNIVERSIDAD/PRO2/Prácticas/P1/cmake-build-debug-mingw/CMakeFiles/edit_cache.dir
+C:/Users/brais/OneDrive - Universidade da Coruña/UNIVERSIDAD/PRO2/Prácticas/P1/cmake-build-debug-mingw/CMakeFiles/main.dir
+C:/Users/brais/OneDrive - Universidade da Coruña/UNIVERSIDAD/PRO2/Prácticas/P1/cmake-build-debug-mingw/CMakeFiles/test_lists.dir
+C:/Users/brais/OneDrive - Universidade da Coruña/UNIVERSIDAD/PRO2/Prácticas/P1/cmake-build-debug-mingw/CMakeFiles/rebuild_cache.dir
