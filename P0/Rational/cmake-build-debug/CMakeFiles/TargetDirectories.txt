@@ -1,0 +1,4 @@
+C:/Users/brais/OneDrive - Universidade da Coruña/UNIVERSIDAD/PRO2/Prácticas/P0/Rational/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/brais/OneDrive - Universidade da Coruña/UNIVERSIDAD/PRO2/Prácticas/P0/Rational/cmake-build-debug/CMakeFiles/Rational_pointer.dir
+C:/Users/brais/OneDrive - Universidade da Coruña/UNIVERSIDAD/PRO2/Prácticas/P0/Rational/cmake-build-debug/CMakeFiles/Rational_struct.dir
+C:/Users/brais/OneDrive - Universidade da Coruña/UNIVERSIDAD/PRO2/Prácticas/P0/Rational/cmake-build-debug/CMakeFiles/edit_cache.dir
