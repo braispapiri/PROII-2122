@@ -11,7 +11,28 @@
 #define STATIC_LIST_H
 
 #include "types.h"
+#include <stdbool.h>
 
-/* Write your code here... */
+#define LNULL -1
+#define MAX 1000
+
+typedef int tPosL;
+typedef struct {
+    tItemL item[MAX];
+    tPosL posicion;
+}tList;
+
+
+void createEmptyList (tList*);
+bool insertItem(tItemL, tPosL, tList*);
+void updateItem(tItemL, tPosL, tList*);
+void deleteAtPosition(tPosL, tList*);
+tPosL findItem(tProductId , tList);
+bool isEmptyList(tList);
+tItemL getItem(tPosL, tList);
+tPosL first(tList);
+tPosL last(tList);
+tPosL previous(tPosL, tList);
+tPosL next(tPosL, tList);
 
 #endif
