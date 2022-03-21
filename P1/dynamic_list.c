@@ -9,11 +9,11 @@
 
 #include "dynamic_list.h"
 
-void createEmptyList(tList* L) {
+void createEmptyList(tList* L) {                                        //Inicializamos la lista
     *L = LNULL;
 }
 
-bool isEmptyList(tList L) {
+bool isEmptyList(tList L) {                                             //Comprobamos si está vacía
     return L == LNULL;
 }
 

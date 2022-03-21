@@ -23,16 +23,27 @@ typedef struct {
 }tList;
 
 
-void createEmptyList (tList*);
-bool insertItem(tItemL, tPosL, tList*);
+void createEmptyList (tList*);              //Crea una lista vacía.
+
+bool insertItem(tItemL, tPosL, tList*);     //Inserta un elemento en la lista antes de la posición indicada. Si la posición es LNULL, entonces se añade al final.
+                                            //Devuelve un valor true si el elemento fue insertado; false en caso contrario.
+
 void updateItem(tItemL, tPosL, tList*);
-void deleteAtPosition(tPosL, tList*);
+
+void deleteAtPosition(tPosL, tList*);       //
+
 tPosL findItem(tProductId , tList);
-bool isEmptyList(tList);
+
+bool isEmptyList(tList);                    //Determina si la lista está vacía
+
 tItemL getItem(tPosL, tList);
-tPosL first(tList);
-tPosL last(tList);
-tPosL previous(tPosL, tList);
-tPosL next(tPosL, tList);
+
+tPosL first(tList);                         //Devuelve la posición del primer elemento de la lista.
+
+tPosL last(tList);                          //Devuelve la posición del último elemento de la lista.
+
+tPosL previous(tPosL, tList);               //Devuelve la posición en la lista del elemento anterior a la posicion indicada (o LNULL si la posición no tiene anterior)
+
+tPosL next(tPosL, tList);                   //Devuelve la posición en la lista del elemento siguiente a la posicion indicada (o LNULL si la posición no tiene siguiente)
 
 #endif
