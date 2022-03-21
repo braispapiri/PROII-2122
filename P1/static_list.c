@@ -12,11 +12,11 @@
 
 
 void createEmptyList(tList* L){
-    L->posicion = LNULL;
+    L->posicion = LNULL;                                //Inicializamos la lista
 }
 
 bool isEmptyList(tList L){
-    return L.posicion == LNULL;
+    return L.posicion == LNULL;                         //Comprobamos que esté vacía
 }
 
 bool insertItem(tItemL item, tPosL pos, tList* L){
@@ -39,7 +39,7 @@ bool insertItem(tItemL item, tPosL pos, tList* L){
 }
 
 void updateItem(tItemL item, tPosL pos, tList* L){
-    L->item[pos] = item;
+    L->item[pos] = item;                            //Le asignamos el valor del item
 }
 
 void deleteAtPosition(tPosL pos, tList* L){
@@ -67,25 +67,25 @@ tPosL findItem(tProductId d, tList L){
 
 
 tItemL getItem(tPosL pos, tList L){
-    return L.item[pos];
+    return L.item[pos];                         //Devuelve el contenido del elemento de pos
 }
 
 tPosL first(tList L){
-    return 0;
+    return 0;                                   //Apunta al primer elemento de la lista
 }
 
 tPosL last(tList L){
-    return L.posicion;
+    return L.posicion;                          //Apunta al último elemento de la lista
 }
 
 tPosL previous(tPosL pos, tList L){
-    return --pos;
+    return --pos;                               //Apunta al elemento anterior a la posicion de entrada
 }
 
 tPosL next(tPosL pos, tList L){
-    if(pos == last(L))
-        return LNULL;
+    if(pos == last(L))          //Si es la última posición, no hay siguiente
+        return LNULL;                   //Devuelve LNULL
     else
-        return ++pos;
+        return ++pos;           //Devuelve el siguiente a la posición de entrada
 }
 

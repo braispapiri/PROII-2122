@@ -28,15 +28,16 @@ void createEmptyList (tList*);              //Crea una lista vacía.
 bool insertItem(tItemL, tPosL, tList*);     //Inserta un elemento en la lista antes de la posición indicada. Si la posición es LNULL, entonces se añade al final.
                                             //Devuelve un valor true si el elemento fue insertado; false en caso contrario.
 
-void updateItem(tItemL, tPosL, tList*);
+void updateItem(tItemL, tPosL, tList*);     //Modifica el contenido del elemento situado en la posición indicada.
 
-void deleteAtPosition(tPosL, tList*);       //
+void deleteAtPosition(tPosL, tList*);       //Elimina de la lista el elemento que ocupa la posición indicada.
 
-tPosL findItem(tProductId , tList);
+tPosL findItem(tProductId , tList);         //Devuelve la posición del primer elemento de la lista cuyo identificador de
+                                            // producto se corresponda con el indicado (o LNULL si no existe tal elemento).
 
 bool isEmptyList(tList);                    //Determina si la lista está vacía
 
-tItemL getItem(tPosL, tList);
+tItemL getItem(tPosL, tList);               //Devuelve el contenido del elemento de la lista que ocupa la posición indicada.
 
 tPosL first(tList);                         //Devuelve la posición del primer elemento de la lista.
 
