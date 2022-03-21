@@ -9,56 +9,57 @@
 
 #include "dynamic_list.h"
 
-void createEmptyList(tList* L) {                                        //Inicializamos la lista
+void createEmptyList(tList* L) {                //Inicializamos la lista
     *L = LNULL;
 }
 
-bool isEmptyList(tList L) {                                             //Comprobamos si está vacía
+bool isEmptyList(tList L) {                   //Comprobamos si la lista está vacía
     return L == LNULL;
 }
 
-tPosL first(tList L){
-    return L;           // L apunta al primer elemento de la lista
+tPosL first(tList L){                       // la lista apunta al primer elemento de ésta
+    return L;
 }
 
-tPosL last(tList L) {
+tPosL last(tList L) {                       // la lista devuelve la posición del último elemento
     tPosL pos;
     for(pos=L; pos->next != LNULL; pos=pos->next);
     return pos;
 }
 
-tPosL previous(tPosL pos, tList L) {
-    tPosL q;
+tPosL previous(tPosL pos, tList L) {        //muestra la posición del anterior elemento al de la posición indicada
+    tPosL q;                                //dicha posición está dentro de la lista.
     for(q=L; q->next != LNULL; q=q->next);
     return q;
 }
 
-tPosL next(tPosL pos, tList L) {
-    return pos->next;
+tPosL next(tPosL pos, tList L) {            //devuelve la posición del siguiente elemento de la posición indicada o
+    return pos->next;                      //o devuelve nulo si la posición no tiene siguiente.
+
 }
 
-bool createNode(tPosL* p){
-    *p = malloc(sizeof(**p));
+bool createNode(tPosL* p){               //comprueba si se puede reservar memoria, si no existe memoria suficiente
+    *p = malloc(sizeof(**p));           //para reservar el operador asigna nulo al puntero
     return *p != LNULL;
 }
 
-bool insertItem(tItemL d, tPosL pos, tList* L) {
-    tPosL q, r;             //q --> elemento que queremos insertar
-                            //r --> elemento anterior a q
+bool insertItem(tItemL d, tPosL pos, tList* L) {            //inserta un elemento en la lista antes de la posición indicada.
+tPosL q, r;                                                //q --> elemento que queremos insertar, r --> elemento anterior a q
+
     if(!createNode(&q)){
         return false;
-    }else{
-        q->data = d;
+    }else{                                                 //si no hay memoria suficiente devuelve false
+        q->data = d;                                      //sino asigna una nueva variable dinámica
         q->next = LNULL;
         if(isEmptyList(*L)){
             *L = q;
-        }else if(pos == LNULL){         //Si la posicion dada es NULL, añadimos el elemento al final de la lista
+        }else if(pos == LNULL){                          //Si la posicion dada es NULL, añadimos el elemento al final de la lista
             for(r=*L; r->next != LNULL; r = r->next);   //Nos movemos al final de la lista
             r->next = q;
-        }else if(pos == *L){    //Insertamos en el primer elemento
+        }else if(pos == *L){                            //Insertamos en el primer elemento
             q->next = pos;
             *L = q;
-        }else{                  //Insertamos en posicion intermedia
+        }else{                                         //Insertamos en posicion intermedia
             q->data = pos->data;
             pos->data = d;
             q->next = pos->next;
@@ -78,27 +79,27 @@ void deleteAtPosition(tPosL pos, tList* L) {
             for(q=*L; q->next != pos; q= q->next);
             q->next = LNULL;
         } else {                    //Eliminar una posición intermedia
-            //Queremos eliminar pos sobreescribiendo con q
+                                    //Queremos eliminar pos sobreescribiendo con q
 
             q = pos->next;          //El siguiente de pos a q
             pos->data = q->data;    //Le pasamos el item apuntado por q a pos
             pos->next = q->next;    //El siguiente de q a pos
             pos = q;                //pos ahora tiene la posicion q
         }
-        free(pos);          //Liberar memoria
+        free(pos);                  //Liberar memoria
     }
 }
 
-tItemL getItem(tPosL pos, tList L) {
-    return pos->data;               //Devuelve el contenido del elemento de pos
+tItemL getItem(tPosL pos, tList L) {                //Devuelve el contenido del elemento de pos
+    return pos->data;
 }
 
-void updateItem(tItemL d, tPosL pos, tList *L) {
-    pos->data = d;                  //Le asignamos el valor de nuestro item a pos
+void updateItem(tItemL d, tPosL pos, tList *L) {    //Le asignamos el valor de nuestro item a pos
+    pos->data = d;
 }
 
-tPosL findItem(tProductId d, tList L) {
-    tPosL p;
+tPosL findItem(tProductId d, tList L) {             //Devuelve la posición del primer elemento de la lista que se corresponda con el indicado
+    tPosL p;                                        //o nulo si no existe dicho elemento
     if (L==NULL) return p;
     else {
         for (p=L; (p!=LNULL)&&(strcmp(p->data.productId,d)!=0); p=p->next);
