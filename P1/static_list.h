@@ -23,12 +23,30 @@ typedef struct {
 }tList;
 
 
-void createEmptyList (tList*);              //Crea una lista vacía.
+void createEmptyList (tList*);
+/*
+ * Objetivo: Crea una lista vacía.
+ * Salidas: la lista vacía.
+ * PostCD: PostCD: La lista queda inicializada y no contiene elementos.*/
 
-bool insertItem(tItemL, tPosL, tList*);     //Inserta un elemento en la lista antes de la posición indicada. Si la posición es LNULL, entonces se añade al final.
-                                            //Devuelve un valor true si el elemento fue insertado; false en caso contrario.
+bool insertItem(tItemL, tPosL, tList*);
+/*
+ Objetivo: Inserta un elemento en la lista antes de la posición indicada. Si la posición es LNULL, entonces se añade al final.
+ Devuelve un valor true si el elemento fue insertado; false en caso contrario.
+
+ -Entradas:                                      -Salidas:
+    tItemL - item a insertar                        tList - la lista modificada
+    tPosL - posicion donde queremos insertarlo      bool - para saber si se insertó correctamente
+    tList - la lista
+ -PreCD:
+    La posición indicada es una posición válida en la lista o bien nula (LNULL)
+ -PostCD:
+    Las posiciones de los elementos de la lista posteriores a la del elemento insertado pueden haber variado.
+    */
+
 
 void updateItem(tItemL, tPosL, tList*);     //Modifica el contenido del elemento situado en la posición indicada.
+
 
 void deleteAtPosition(tPosL, tList*);       //Elimina de la lista el elemento que ocupa la posición indicada.
 
