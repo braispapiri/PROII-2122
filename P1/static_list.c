@@ -12,7 +12,7 @@
 
 
 void createEmptyList(tList* L){
-    L->posicion = LNULL;                                //Inicializamos la lista
+    L-> posicion = LNULL;                                //Inicializamos la lista
 }
 
 bool isEmptyList(tList L){
@@ -27,7 +27,7 @@ bool insertItem(tItemL item, tPosL pos, tList* L){
     }else{
         L->posicion++;
         if(pos == LNULL){
-            L->item[L->posicion+1] = item;
+            L->item[L->posicion] = item;
         }else{
             for(p=L->posicion; p>= pos+1; p--){
                 L->item[p] = L->item[p-1];
@@ -45,14 +45,14 @@ void updateItem(tItemL item, tPosL pos, tList* L){
 void deleteAtPosition(tPosL pos, tList* L){
     tPosL p;
 
-    L->posicion--;
-    for(p = pos; p<=L->posicion; p++){
+    for(p = pos; p< L->posicion; p++)
         L->item[p] = L->item[p+1];
-    }
+    L->posicion--;
+
 }
 
-tPosL findItem(tProductId d, tList L){
-    tPosL p=0;
+tPosL findItem(tProductId d, tList L){ ///AQUIII
+    tPosL p;
     tItemL prod;
 
     while((p!=LNULL)&&(p<MAX)){
@@ -63,6 +63,19 @@ tPosL findItem(tProductId d, tList L){
         p=next(p, L);
     }
     return LNULL;
+/*
+ * tPosL p;
+ * if ( isEmptyList(L))
+ *      return LNULL;
+ * else{
+ *       for(p= 0; (p<= L.posicion) && (strcmp(L.item[p].nickname, d) !=0); p++);
+ *       if ( p<= L.posicion){
+ *          return p;
+ *       else
+ *          return LNULL;
+ * }
+ */
+
 }
 
 
@@ -83,9 +96,9 @@ tPosL previous(tPosL pos, tList L){
 }
 
 tPosL next(tPosL pos, tList L){
-    if(pos == last(L))          //Si es la última posición, no hay siguiente
-        return LNULL;                   //Devuelve LNULL
+    if(pos == L.posicion)                   //Si es la última posición, no hay siguiente
+        return LNULL;                       //Devuelve LNULL
     else
-        return ++pos;           //Devuelve el siguiente a la posición de entrada
+        return ++pos;                       //Devuelve el siguiente a la posición de entrada
 }
 

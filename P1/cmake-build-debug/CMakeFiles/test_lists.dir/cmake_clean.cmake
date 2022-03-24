@@ -3,9 +3,7 @@ file(REMOVE_RECURSE
   "../bin/test_lists.exe.manifest"
   "../bin/test_lists.pdb"
   "CMakeFiles/test_lists.dir/dynamic_list.c.obj"
-  "CMakeFiles/test_lists.dir/dynamic_list.c.obj.d"
   "CMakeFiles/test_lists.dir/test.c.obj"
-  "CMakeFiles/test_lists.dir/test.c.obj.d"
   "libtest_lists.dll.a"
 )
 

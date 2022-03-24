@@ -26,8 +26,9 @@ typedef struct {
 void createEmptyList (tList*);
 /*
  * Objetivo: Crea una lista vacía.
- * Salidas: la lista vacía.
- * PostCD: PostCD: La lista queda inicializada y no contiene elementos.*/
+ * Salidas: La lista vacía.
+ * PostCD: La lista queda inicializada y no contiene elementos.
+*/
 
 bool insertItem(tItemL, tPosL, tList*);
 /*
@@ -46,7 +47,6 @@ bool insertItem(tItemL, tPosL, tList*);
  -PostCD:
     Las posiciones de los elementos de la lista posteriores a la del elemento insertado pueden haber variado.
     */
-
 
 void updateItem(tItemL, tPosL, tList*);
 /*
@@ -105,9 +105,20 @@ bool isEmptyList(tList);
  *      bool - devuelve true o false
 */
 tItemL getItem(tPosL, tList);               //Devuelve el contenido del elemento de la lista que ocupa la posición indicada.
-
+/*
+ * Objetivo:
+ * Entradas:
+ * Salidas:
+ *
+ */
 tPosL first(tList);                         //Devuelve la posición del primer elemento de la lista.
-
+/*
+ * Objetivo del procedimiento/función.
+ *Entradas (identificador y breve descripción, una por línea).
+ * Salidas (identificador y breve descripción, una por línea).
+ * Precondiciones (condiciones que han de cumplir las entradas para el correcto funcionamiento de la subrutina).
+ * Postcondiciones otras consecuencias de la ejecución de la subrutina que no quedan reflejadas en la descripción del objetivo o de las salidas
+ */
 tPosL last(tList);                          //Devuelve la posición del último elemento de la lista.
 
 tPosL previous(tPosL, tList);               //Devuelve la posición en la lista del elemento anterior a la posicion indicada (o LNULL si la posición no tiene anterior)

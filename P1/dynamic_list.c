@@ -21,9 +21,10 @@ tPosL first(tList L){                       // la lista apunta al primer element
     return L;
 }
 
-tPosL last(tList L) {                       // la lista devuelve la posición del último elemento
-    tPosL pos;
-    for(pos=L; pos->next != LNULL; pos=pos->next);
+tPosL last(tList L) {                       //la lista devuelve la posición del último elemento
+    tPosL pos = L;
+    while(pos ->next != LNULL)
+        pos = pos -> next;
     return pos;
 }
 
@@ -31,6 +32,14 @@ tPosL previous(tPosL pos, tList L) {        //muestra la posición del anterior 
     tPosL q;                                //dicha posición está dentro de la lista.
     for(q=L; q->next != LNULL; q=q->next);
     return q;
+    /*
+     * tPosL q;
+     * if(pos == L)
+     *      q= LNULL;
+     * else
+     * for(q = L; q-> next != p; q = q -> next);
+     * return q;
+     */
 }
 
 tPosL next(tPosL pos, tList L) {            //devuelve la posición del siguiente elemento de la posición indicada o
@@ -40,30 +49,31 @@ tPosL next(tPosL pos, tList L) {            //devuelve la posición del siguient
 
 bool createNode(tPosL* p){               //comprueba si se puede reservar memoria, si no existe memoria suficiente
     *p = malloc(sizeof(**p));           //para reservar el operador asigna nulo al puntero
+    //*p = malloc( sizeof(struct tNode));
     return *p != LNULL;
 }
 
 bool insertItem(tItemL d, tPosL pos, tList* L) {            //inserta un elemento en la lista antes de la posición indicada.
-tPosL q, r;                                                //q --> elemento que queremos insertar, r --> elemento anterior a q
+    tPosL q, r;                                                //q --> elemento que queremos insertar, r --> elemento anterior a q
 
     if(!createNode(&q)){
         return false;
     }else{                                                 //si no hay memoria suficiente devuelve false
-        q->data = d;                                      //sino asigna una nueva variable dinámica
-        q->next = LNULL;
-        if(isEmptyList(*L)){
+        q-> data = d;                                      //sino asigna una nueva variable dinámica
+        q-> next = LNULL;
+        if(*L== LNULL){
             *L = q;
         }else if(pos == LNULL){                          //Si la posicion dada es NULL, añadimos el elemento al final de la lista
-            for(r=*L; r->next != LNULL; r = r->next);   //Nos movemos al final de la lista
-            r->next = q;
+            for(r=*L; r-> next != LNULL; r = r-> next);   //Nos movemos al final de la lista
+            r-> next = q;
         }else if(pos == *L){                            //Insertamos en el primer elemento
-            q->next = pos;
+            q-> next = pos;
             *L = q;
         }else{                                         //Insertamos en posicion intermedia
-            q->data = pos->data;
+            q-> data = pos-> data;
             pos->data = d;
-            q->next = pos->next;
-            pos->next = q;
+            q-> next = pos-> next;
+            pos-> next = q;
         }
         return true;
     }
@@ -80,7 +90,6 @@ void deleteAtPosition(tPosL pos, tList* L) {
             q->next = LNULL;
         } else {                    //Eliminar una posición intermedia
                                     //Queremos eliminar pos sobreescribiendo con q
-
             q = pos->next;          //El siguiente de pos a q
             pos->data = q->data;    //Le pasamos el item apuntado por q a pos
             pos->next = q->next;    //El siguiente de q a pos
@@ -100,9 +109,11 @@ void updateItem(tItemL d, tPosL pos, tList *L) {    //Le asignamos el valor de n
 
 tPosL findItem(tProductId d, tList L) {             //Devuelve la posición del primer elemento de la lista que se corresponda con el indicado
     tPosL p;                                        //o nulo si no existe dicho elemento
-    if (L==NULL) return p;
+    if (isEmptyList(L))
+        p = LNULL;
     else {
         for (p=L; (p!=LNULL)&&(strcmp(p->data.productId,d)!=0); p=p->next);
+                                     //(p->data.nickname, d) != 0)
         return p;
     }
 }
