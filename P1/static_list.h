@@ -26,26 +26,23 @@ typedef struct {
 void createEmptyList (tList*);
 /*
  * Objetivo: Crea una lista vacía.
- * Salidas: La lista vacía.
+ * Salidas:
+ *          tList - La lista vacía.
  * PostCD: La lista queda inicializada y no contiene elementos.
 */
 
 bool insertItem(tItemL, tPosL, tList*);
 /*
- Objetivo: Inserta un elemento en la lista antes de la posición indicada. Si la posición es LNULL, entonces se añade al final.
- Devuelve un valor true si el elemento fue insertado; false en caso contrario.
+Objetivo: Inserta un elemento en la lista antes de la posición indicada. Si la posición es LNULL, entonces se añade al final.
+Devuelve un valor true si el elemento fue insertado; false en caso contrario.
 
-
- -Entradas:                                      -Salidas:
+Entradas:                                      Salidas:
     tItemL - item a insertar                        tList - la lista modificada
     tPosL - posicion donde queremos insertarlo      bool - para saber si se insertó correctamente
     tList - la lista
 
- -PreCD:
-    La posición indicada es una posición válida en la lista o bien nula (LNULL)
-
- -PostCD:
-    Las posiciones de los elementos de la lista posteriores a la del elemento insertado pueden haber variado.
+PreCD: La posición indicada es una posición válida en la lista o bien nula (LNULL)
+PostCD: Las posiciones de los elementos de la lista posteriores a la del elemento insertado pueden haber variado.
     */
 
 void updateItem(tItemL, tPosL, tList*);
@@ -99,30 +96,60 @@ bool isEmptyList(tList);
  * Objetivo: Determina si la lista está vacía.
  *
  * Entradas:
- *      tList - la lista
+ *          tList - la lista
  *
  * Salidas:
- *      bool - devuelve true o false
+ *          bool - devuelve true o false
 */
-tItemL getItem(tPosL, tList);               //Devuelve el contenido del elemento de la lista que ocupa la posición indicada.
+
+tItemL getItem(tPosL, tList);
 /*
- * Objetivo:
+ * Objetivo: Devolver el contenido del elemento de la lista que ocupa la posición indicada.
  * Entradas:
- * Salidas:
- *
+ *           tPosL - posición
+ *           tList - lista
+ * Salidas: tItemL
+ *PreCD: La posición indicada es una posición válid en la lista.
  */
-tPosL first(tList);                         //Devuelve la posición del primer elemento de la lista.
+
+tPosL first(tList);
 /*
- * Objetivo del procedimiento/función.
- *Entradas (identificador y breve descripción, una por línea).
- * Salidas (identificador y breve descripción, una por línea).
- * Precondiciones (condiciones que han de cumplir las entradas para el correcto funcionamiento de la subrutina).
- * Postcondiciones otras consecuencias de la ejecución de la subrutina que no quedan reflejadas en la descripción del objetivo o de las salidas
+ * Objetivo: Devuelve la posición del primer elemento de la lista.
+ * Entradas:
+ *          tList - lista
+ * Salidas:
+ *          tPosL - posicion actualizada
+ * PreCD: La lista no está vacía.
  */
+
 tPosL last(tList);                          //Devuelve la posición del último elemento de la lista.
-
-tPosL previous(tPosL, tList);               //Devuelve la posición en la lista del elemento anterior a la posicion indicada (o LNULL si la posición no tiene anterior)
-
-tPosL next(tPosL, tList);                   //Devuelve la posición en la lista del elemento siguiente a la posicion indicada (o LNULL si la posición no tiene siguiente)
+/*
+ * Objetivo: Devuelve la posición del último elemento de la lista.
+ * Entradas:
+ *           tList - lista
+ * Salidas:
+ *          tPosL - posicion actualizada
+ *PreCD: La lista no está vacía.
+ */
+tPosL previous(tPosL, tList);
+/*
+ * Objetivo: Devuelve la posición en la lista del elemento anterior al de la posición indicada (o LNULL si la posición no tiene anterior).
+ * Entradas:
+ *           tPosL - posicion
+ *           tList - lista
+ * Salidas:
+ *          tPosL - posición actualizada
+ *PreCD: La posición indicada es una posición válida en la lista.
+ */
+tPosL next(tPosL, tList);
+/*
+ * Objetivo: Devuelve la posición en la lista del elemento siguiente al de la posición indicada (o LNULL si la posición no tiene siguiente).
+ * Entradas:
+ *          tPosL - posicion
+ *          tList - lista
+ * Salidas:
+ *          tPosL - posición actualizada
+ *PreCD: La posición indicada es una posición válida en la lista.
+ */
 
 #endif
