@@ -14,7 +14,9 @@ void createEmptyList(tList* L) {                //Inicializamos la lista
 }
 
 bool isEmptyList(tList L) {                   //Comprobamos si la lista está vacía
-    return L == LNULL;
+    if (L == LNULL) {
+        return true;
+    } else return false;
 }
 
 tPosL first(tList L){                       // la lista apunta al primer elemento de ésta
@@ -22,24 +24,21 @@ tPosL first(tList L){                       // la lista apunta al primer element
 }
 
 tPosL last(tList L) {                       //la lista devuelve la posición del último elemento
-    tPosL pos = L;
-    while(pos ->next != LNULL)
-        pos = pos -> next;
+    tPosL pos;
+    for(pos=L; pos->next != LNULL; pos=pos->next);
     return pos;
 }
 
 tPosL previous(tPosL pos, tList L) {        //muestra la posición del anterior elemento al de la posición indicada
-    tPosL q;                                //dicha posición está dentro de la lista.
-    for(q=L; q->next != LNULL; q=q->next);
+                                           //dicha posición está dentro de la lista.
+    tPosL q;
+
+    if(pos==L){
+        q = LNULL;
+    }else{
+        for(q=L; q->next != pos; q=q->next);
+    }
     return q;
-    /*
-     * tPosL q;
-     * if(pos == L)
-     *      q= LNULL;
-     * else
-     * for(q = L; q-> next != p; q = q -> next);
-     * return q;
-     */
 }
 
 tPosL next(tPosL pos, tList L) {            //devuelve la posición del siguiente elemento de la posición indicada o
@@ -113,7 +112,6 @@ tPosL findItem(tProductId d, tList L) {             //Devuelve la posición del 
         p = LNULL;
     else {
         for (p=L; (p!=LNULL)&&(strcmp(p->data.productId,d)!=0); p=p->next);
-                                     //(p->data.nickname, d) != 0)
         return p;
     }
 }

@@ -35,6 +35,7 @@ void createEmptyList(tList*);
  * Salidas: La lista vacía.
  * PostCD:  La lista queda inicializada y no contiene elementos.
 */
+bool isEmptyList(tList);
 bool createNode(tPosL*);
 /*
  * Objetivo: Comprueba si hay memoria para la variable apuntada e inicializa el valor del puntero a la dirección de esa zona de memoria.
@@ -48,35 +49,30 @@ bool isEmptyList(tList);
  * Salidas: La lista vacía.
  * PostCD: Lista vacía comprobada y lista para inicializar.
 */
-
 tPosL first(tList);
 /*
  * Objetivo: Devolver la posición del primer elemento de la lista.
  * Salidas:
  * PostCD:
 */
-
 tPosL last(tList);
 /*
  * Objetivo: Crea una lista vacía.
  * Salidas: la lista vacía.
  * PostCD: PostCD: La lista queda inicializada y no contiene elementos.
 */
-
 tPosL next(tPosL, tList);
 /*
  * Objetivo: Crea una lista vacía.
  * Salidas: la lista vacía.
  * PostCD: PostCD: La lista queda inicializada y no contiene elementos.
 */
-
 tPosL previous(tPosL, tList);
 /*
  * Objetivo: Crea una lista vacía.
  * Salidas: la lista vacía.
  * PostCD: PostCD: La lista queda inicializada y no contiene elementos.
 */
-
 bool insertItem(tItemL, tPosL, tList*);
 /*
  Objetivo: Inserta un elemento en la lista antes de la posición indicada. Si la posición es LNULL, entonces se añade al final.
@@ -91,28 +87,24 @@ bool insertItem(tItemL, tPosL, tList*);
  -PostCD:
     Las posiciones de los elementos de la lista posteriores a la del elemento insertado pueden haber variado.
 */
-
 void deleteAtPosition(tPosL, tList*);
 /*
  * Objetivo: Crea una lista vacía.
  * Salidas: la lista vacía.
  * PostCD: PostCD: La lista queda inicializada y no contiene elementos.
 */
-
 tItemL getItem(tPosL, tList);
 /*
  * Objetivo: Crea una lista vacía.
  * Salidas: la lista vacía.
  * PostCD: PostCD: La lista queda inicializada y no contiene elementos.
 */
-
 void updateItem(tItemL, tPosL, tList*);
 /*
  * Objetivo: Crea una lista vacía.
  * Salidas: la lista vacía.
  * PostCD: PostCD: La lista queda inicializada y no contiene elementos.
 */
-
 tPosL findItem(tProductId, tList);
 /*
  * Objetivo: Crea una lista vacía.
