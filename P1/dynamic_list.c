@@ -98,7 +98,7 @@ tPosL last(tList L) {                       //la lista devuelve la posición del
 }
 
 tPosL previous(tPosL pos, tList L) {        //muestra la posición del anterior elemento al de la posición indicada
-    //dicha posición está dentro de la lista.
+                                            //dicha posición está dentro de la lista.
     tPosL q;
 
     if(pos==L){
