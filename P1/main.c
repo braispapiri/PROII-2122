@@ -21,15 +21,14 @@
 #include "static_list.h"
 #endif
 
+/*
+* OBJETIVO: añadir un nuevo ítem a la lista de usuarios
+* ENTRADA: el nick del que se pretende que sea el nuevo ítem, su categoría y la lista a modificar
+* SALIDA: una lista con el nuevo item si no existía o la misma lista sin modificar
+* PRECONDICIÓN: la lista tiene que estar inicializada
+*/
 
 void New(tProductId productId, tUserId seller, tProductCategory productCategory, tProductPrice productPrice, tList* L) { //struct tItemL productId
-    /*
-        * OBJETIVO: añadir un nuevo ítem a la lista de usuarios
-        * ENTRADA: el nick del que se pretende que sea el nuevo ítem, su categoría y la lista a modificar
-        * SALIDA: una lista con el nuevo item si no existía o la misma lista sin modificar
-        * PRECONDICIÓN: la lista tiene que estar inicializada
-    */
-
 
     tPosL pos;
     tItemL item;
@@ -58,9 +57,6 @@ void New(tProductId productId, tUserId seller, tProductCategory productCategory,
     }
 
 }
-
-
-
 
 void processCommand(char *commandNumber, char command, char *param1, char *param2, char *param3, char *param4) {
 

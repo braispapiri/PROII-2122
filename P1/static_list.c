@@ -16,26 +16,26 @@ void createEmptyList(tList* L){
 }
 
 bool isEmptyList(tList L){
-    if (L.posicion == LNULL){
+    if (L.posicion == LNULL){                       //se comprueba la lista si es cierto o falso
         return true;
     } else return false;
 }
 
-bool insertItem(tItemL item, tList* L){
+bool insertItem(tItemL item, tList* L){                //insercion(desplazar elemento)
     tPosL p;
     tItemL  item2;
     item2 = L->item[L->posicion];
 
 
-    if(L->posicion == MAX-1){
-        return false;
+    if(L->posicion == MAX-1){                       //comprobamos si hay espacio
+        return false;                               //si no hay devuelve false y no se hace nada
     }else{
         if (isEmptyList(*L) == true || strcmp(item.productId, item2.productId) > 0) {
             L->posicion++;
             L->item[L->posicion] = item;
         }
         else {
-            L->posicion++;
+            L->posicion++;                          //añadimos al final de la lista
             for (p = L->posicion-1; p >= 0 || strcmp(item.productId, item2.productId) > 0; p--) {
                 item2 = L->item[p];
                 L->item[p+1] = L->item[p];
@@ -43,8 +43,8 @@ bool insertItem(tItemL item, tList* L){
                     L->item[p+1] = item;
                     break;
                 }
-                else if(p == 0){
-                    L->item[p] = item;
+                else if(p == 0){                //si la pos es = 0
+                    L->item[p] = item;          //sale el mismo item
                     break;
                 }
             }
@@ -60,7 +60,7 @@ void updateItem(tItemL item, tPosL pos, tList* L){
 
 void deleteAtPosition(tPosL pos, tList* L){
     tPosL p;
-
+                                                        //eliminamos de la lista el elemento que ocupa la posición indicada
     L->posicion--;
     for(p = pos; p< L->posicion; p++)
         L->item[p] = L->item[p+1];
@@ -68,9 +68,9 @@ void deleteAtPosition(tPosL pos, tList* L){
 
 }
 
-tPosL findItem(tProductId id, tList L){ ///AQUIII
-    tPosL p;
-    tItemL item2 = L.item[L.posicion];
+tPosL findItem(tProductId id, tList L){                     //devuelve la pos del primer elemento de la lista cuyo
+    tPosL p;                                                //identificador de producto se corresponda con el indicado
+    tItemL item2 = L.item[L.posicion];                      //o nulo si no existe dicho elemento
 
     if(isEmptyList(L) == true)
         return LNULL;
