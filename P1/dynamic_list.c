@@ -42,7 +42,7 @@ bool insertItem(tItemL item, tPosL pos, tList* L) {            //inserta un elem
             *L = q;
         }else{                                         //Insertamos en posicion intermedia
             q-> data = pos-> data;
-            pos->data = d;
+            pos->data = item;
             q-> next = pos-> next;
             pos-> next = q;
         }
