@@ -35,14 +35,12 @@ void createEmptyList(tList*);
  * Salidas: La lista vacía.
  * PostCD:  La lista queda inicializada y no contiene elementos.
 */
-bool isEmptyList(tList);
 bool createNode(tPosL*);
 /*
  * Objetivo: Comprueba si hay memoria para la variable apuntada e inicializa el valor del puntero a la dirección de esa zona de memoria.
  * Entradas:
  * Salidas: True or false.
- /*
-
+ */
 bool isEmptyList(tList);
 /*
  * Objetivo: Comprobar si la lista está vacía.
@@ -73,7 +71,7 @@ tPosL previous(tPosL, tList);
  * Salidas: la lista vacía.
  * PostCD: PostCD: La lista queda inicializada y no contiene elementos.
 */
-bool insertItem(tItemL, tPosL, tList*);
+bool insertItem(tItemL, tPosL pos, tList*);
 /*
  Objetivo: Inserta un elemento en la lista antes de la posición indicada. Si la posición es LNULL, entonces se añade al final.
  Devuelve un valor true si el elemento fue insertado; false en caso contrario.

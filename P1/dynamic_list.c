@@ -19,46 +19,18 @@ bool isEmptyList(tList L) {                   //Comprobamos si la lista está va
     } else return false;
 }
 
-tPosL first(tList L){                       // la lista apunta al primer elemento de ésta
-    return L;
-}
-
-tPosL last(tList L) {                       //la lista devuelve la posición del último elemento
-    tPosL pos;
-    for(pos=L; pos->next != LNULL; pos=pos->next);
-    return pos;
-}
-
-tPosL previous(tPosL pos, tList L) {        //muestra la posición del anterior elemento al de la posición indicada
-                                           //dicha posición está dentro de la lista.
-    tPosL q;
-
-    if(pos==L){
-        q = LNULL;
-    }else{
-        for(q=L; q->next != pos; q=q->next);
-    }
-    return q;
-}
-
-tPosL next(tPosL pos, tList L) {            //devuelve la posición del siguiente elemento de la posición indicada o
-    return pos->next;                      //o devuelve nulo si la posición no tiene siguiente.
-
-}
-
 bool createNode(tPosL* p){               //comprueba si se puede reservar memoria, si no existe memoria suficiente
     *p = malloc(sizeof(**p));           //para reservar el operador asigna nulo al puntero
-    //*p = malloc( sizeof(struct tNode));
     return *p != LNULL;
 }
 
-bool insertItem(tItemL d, tPosL pos, tList* L) {            //inserta un elemento en la lista antes de la posición indicada.
+bool insertItem(tItemL item, tPosL pos, tList* L) {            //inserta un elemento en la lista antes de la posición indicada.
     tPosL q, r;                                                //q --> elemento que queremos insertar, r --> elemento anterior a q
 
     if(!createNode(&q)){
         return false;
     }else{                                                 //si no hay memoria suficiente devuelve false
-        q-> data = d;                                      //sino asigna una nueva variable dinámica
+        q-> data = item;                                      //sino asigna una nueva variable dinámica
         q-> next = LNULL;
         if(*L== LNULL){
             *L = q;
@@ -115,6 +87,33 @@ tPosL findItem(tProductId d, tList L) {             //Devuelve la posición del 
         return p;
     }
 }
+tPosL first(tList L){                       // la lista apunta al primer elemento de ésta
+    return L;
+}
+
+tPosL last(tList L) {                       //la lista devuelve la posición del último elemento
+    tPosL pos;
+    for(pos=L; pos->next != LNULL; pos=pos->next);
+    return pos;
+}
+
+tPosL previous(tPosL pos, tList L) {        //muestra la posición del anterior elemento al de la posición indicada
+    //dicha posición está dentro de la lista.
+    tPosL q;
+
+    if(pos==L){
+        q = LNULL;
+    }else{
+        for(q=L; q->next != pos; q=q->next);
+    }
+    return q;
+}
+
+tPosL next(tPosL pos, tList L) {            //devuelve la posición del siguiente elemento de la posición indicada o
+    return pos->next;                      //o devuelve nulo si la posición no tiene siguiente.
+
+}
+
 
 
 
