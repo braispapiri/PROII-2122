@@ -27,29 +27,60 @@ bool isEmptyList(tList L){
     }
 }
 
-bool createNode(tPosL* p){
-    *p = malloc(sizeof(**p));
-    return *p !=LNULL;
-}
-
 bool insertItem(tItemL item, tList* L){
 /*
  * Inserta un elemento en la Lista de forma ordenada
  * por el campo productId. Devuelve un valor true si el elemento
  * fue insertado; false en caso contrario.
  */
-    Lista *nLista;
-    nLista = L * malloc(sizeof (L));
-    nLista ->
+   Node *new_node;
+   new_node = (Node*) malloc(sizeof(Node));
+   new_node -> item = productId;
+   new_node -> sig = LNULL;
+
+   if(L == NULL){
+       return false;
+   }else{
+       if(L == item){
+           return true;
+       }
+   }
 
 }
 
-void deleteAtPosition(tPosL pos, tList L){
+void deleteAtPosition(tPosL pos, tList* L){
 /*
- * Elimina de la lista el elemento que ocupa la posición indicada.
-PreCD: La posición indicada es una posición válida en la lista y el producto en dicha posición tiene una pila de pujas vacía.
-PostCD: Las posiciones de los elementos de la lista posteriores a la de la posición eliminada pueden haber variado.
+ * Elimina de la lista el elemento que ocupa la posicion indicada.
+PreCD: La posición indicada es una posición válida en
+ la lista y el producto en dicha posición tiene una pila de pujas vacía.
+PostCD: Las posiciones de los elementos de la
+ lista posteriores a la de la posición eliminada pueden
+ haber variado.
  */
+
+
+    if(L != LNULL){
+        Node *aux_eliminar;
+        Node *anterior = LNULL;
+        aux_eliminar = L;
+
+        while((aux_eliminar != LNULL) && (aux_eliminar -> it != pos)){
+            anterior = aux_eliminar;
+            aux_eliminar = aux_borrar ->sig;
+        }
+        if(aux_eliminar == LNULL){
+            printf("No está el elemento");
+        }else if(anterior == LNULL){
+            L = L -> sig;
+            delete aux_eliminar;
+        }
+        else{
+            anterior -> sig = aux_eliminar->sig;
+            delete aux_eliminar;
+        }
+    }
+
+
 }
 
 tItemL getItem(tPosL pos, tList L) {                //Devuelve el contenido del elemento de pos

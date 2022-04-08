@@ -12,11 +12,11 @@
 
 #include "types.h"
 
-typedef struct nodo{
+typedef struct Nodo{
     tItemL ti;
     tPosL posi;
     struct nodo * sig;
-};
+}Node;
 
 void createEmptyList(tList*);
 bool isEmptyList(tList);
