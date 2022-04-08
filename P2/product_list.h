@@ -12,6 +12,11 @@
 
 #include "types.h"
 #include "bid_stack.h"
+#include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define LNULL NULL
 
 typedef struct tNode* tPosL;
 
