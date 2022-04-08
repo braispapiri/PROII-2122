@@ -28,7 +28,14 @@ bool createNode (tPosL *p) {
     return *p != LNULL;
 }
 
+tPosL findPosition(tList L, tItemL item) {
+    tPosL p;
 
+    p=L;
+    while ((p->next != LNULL) && (p->next->data < item)) {
+        p = p->next;
+    } return p;
+}
 
 bool insertItem(tItemL item, tList *L){
 
