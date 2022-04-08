@@ -15,36 +15,55 @@
 //LNULL cte usada para indicar posiciones nulas de la lista
 
 
-void createEmptyList(tList* L){
+void createEmptyList(tList *L){
     *L = LNULL;
 }
 
 bool isEmptyList(tList L){
-    if(L== LNULL){
-        return true;
-    }else{
+    return (L == LNULL);
+}
+
+bool createNode (tPosL *p) {
+    *p = malloc(sizeof(struct tNode));
+    return *p != LNULL;
+}
+
+
+
+bool insertItem(tItemL item, tList *L){
+
+    tPosL q, p;
+
+    if (!createNode(&q)) {
         return false;
+    } else {
+        q->data = item;
+        q->next = LNULL;
+
+        if (isEmptyList(*L)) {
+            *L = q;
+        } else if (item < (*L)->data) {
+            q->next = *L;
+            *L = q;
+        } else {
+            p = findPosition(*L, item);
+            q->next = p->next;
+            p->next = q;
+        }
+        return true;
     }
 }
 
-bool insertItem(tItemL item, tList* L){
-
-   Node *new_node;
-   new_node = (Node*) malloc(sizeof(Node));
-   new_node -> item = productId;
-   new_node -> sig = LNULL;
-
-   if(L == NULL){
-       return false;
-   }else{
-       if(L == item){
-           return true;
-       }
-   }
-
-}
-
 void deleteAtPosition(tPosL pos, tList* L){
+/*
+ * Elimina de la lista el elemento que ocupa la posicion indicada.
+PreCD: La posición indicada es una posición válida en
+ la lista y el producto en dicha posición tiene una pila de pujas vacía.
+PostCD: Las posiciones de los elementos de la
+ lista posteriores a la de la posición eliminada pueden
+ haber variado.
+ */
+
 
     if(L != LNULL){
         Node *aux_eliminar;

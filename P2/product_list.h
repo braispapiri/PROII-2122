@@ -36,8 +36,10 @@ typedef struct tNodeL {
     tPosL next;
 } tNodeL;
 
-void createEmptyList(tList*);
-bool isEmptyList(tList);
+void createEmptyList(tList *L);
+bool createNode (tPosL* p);
+bool isEmptyList(tList L);
+tPosL findPosition(tList L, tItemL item);
 tPosL first(tList);
 tPosL last(tList);
 tPosL next(tPosL, tList);
