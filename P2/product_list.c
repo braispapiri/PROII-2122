@@ -28,11 +28,7 @@ bool isEmptyList(tList L){
 }
 
 bool insertItem(tItemL item, tList* L){
-/*
- * Inserta un elemento en la Lista de forma ordenada
- * por el campo productId. Devuelve un valor true si el elemento
- * fue insertado; false en caso contrario.
- */
+
    Node *new_node;
    new_node = (Node*) malloc(sizeof(Node));
    new_node -> item = productId;
@@ -49,15 +45,6 @@ bool insertItem(tItemL item, tList* L){
 }
 
 void deleteAtPosition(tPosL pos, tList* L){
-/*
- * Elimina de la lista el elemento que ocupa la posicion indicada.
-PreCD: La posición indicada es una posición válida en
- la lista y el producto en dicha posición tiene una pila de pujas vacía.
-PostCD: Las posiciones de los elementos de la
- lista posteriores a la de la posición eliminada pueden
- haber variado.
- */
-
 
     if(L != LNULL){
         Node *aux_eliminar;
