@@ -61,40 +61,23 @@ bool insertItem(tItemL item, tList *L){
     }
 }
 
-void deleteAtPosition(tPosL pos, tList* L){
-/*
- * Elimina de la lista el elemento que ocupa la posicion indicada.
-PreCD: La posición indicada es una posición válida en
- la lista y el producto en dicha posición tiene una pila de pujas vacía.
-PostCD: Las posiciones de los elementos de la
- lista posteriores a la de la posición eliminada pueden
- haber variado.
- */
+void deleteAtPosition(tPosL pos, tList* L) {
 
-
-    if(L != LNULL){
-        Node *aux_eliminar;
-        Node *anterior = LNULL;
-        aux_eliminar = L;
-
-        while((aux_eliminar != LNULL) && (aux_eliminar -> it != pos)){
-            anterior = aux_eliminar;
-            aux_eliminar = aux_borrar ->sig;
-        }
-        if(aux_eliminar == LNULL){
-            printf("No está el elemento");
-        }else if(anterior == LNULL){
-            L = L -> sig;
-            delete aux_eliminar;
-        }
-        else{
-            anterior -> sig = aux_eliminar->sig;
-            delete aux_eliminar;
-        }
+    tPosL q;
+    if (p == *L) {
+        *L = (*L)->next;
+    } else if (p->next == LNULL) {
+        for (q = *L; q->next->next != p; q = q->next);
+        q->next LNULL;
+    } else {
+        q = p->next;
+        p->data = q->data;
+        p->next = q->next;
+        p = q;
     }
-
-
+    free(p);
 }
+
 
 tItemL getItem(tPosL pos, tList L) {                //Devuelve el contenido del elemento de pos
     return pos->data;
