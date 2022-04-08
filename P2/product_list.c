@@ -84,11 +84,11 @@ PostCD: Las posiciones de los elementos de la
 }
 
 tItemL getItem(tPosL pos, tList L) {                //Devuelve el contenido del elemento de pos
-    return pos->data;
+    return pos->it;
 }
 
 void updateItem(tItemL item, tPosL pos, tList *L) {    //Le asignamos el valor de nuestro item a pos
-    pos->data = d;
+    pos->it = d;
 }
 
 tPosL findItem(tProductId d, tList L) {             //Devuelve la posición del primer elemento de la lista que se corresponda con el indicado
