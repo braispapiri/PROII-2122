@@ -11,12 +11,25 @@
 #define PRODUCT_LIST_H
 
 #include "types.h"
+#include "bid_stack.h"
 
-typedef struct Nodo{
-    tItemL ti;
-    tPosL posi;
-    struct nodo * sig;
-}Node;
+typedef struct tNode* tPosL;
+
+typedef struct tItemL {
+    tUserId  seller;
+    tProductId productId;
+    tProductCategory productCategory;
+    tProductPrice productPrice;
+    tBidCounter bidCounter;
+    tStack bidStack;
+};
+
+typedef struct tPosL tList;
+
+typedef struct tNodeL {
+    tItemL data;
+    tPosL next;
+} tNodeL;
 
 void createEmptyList(tList*);
 bool isEmptyList(tList);
