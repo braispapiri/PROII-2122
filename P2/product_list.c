@@ -91,15 +91,17 @@ void updateItem(tItemL item, tPosL pos, tList *L) {    //Le asignamos el valor d
     pos->data = d;
 }
 
-tPosL findItem(tProductId d, tList L) {             //Devuelve la posición del primer elemento de la lista que se corresponda con el indicado
+tPosL findItem(tItemL d, tList L) {             //Devuelve la posición del primer elemento de la lista que se corresponda con el indicado
     tPosL p;                                        //o nulo si no existe dicho elemento
-    if (isEmptyList(L))
-        p = LNULL;
-    else {
-        for (p=L; (p!=LNULL)&&(strcmp(p->data.productId,d)!=0); p=p->next);
+
+    for (p=L; (p!=LNULL) && (p->data < d); p=p->next);
+    if(p != LNULL && p->data == d){
         return p;
+    }else{
+        return LNULL;
     }
 }
+
 tPosL first(tList L){                       // la lista apunta al primer elemento de ésta
     return L;
 }
