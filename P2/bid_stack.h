@@ -4,7 +4,7 @@
  * AUTHOR 1: Brais Fernandez Papiri LOGIN 1: brais.papiri
  * AUTHOR 2: Samanta Karolay Machuca Montalvo LOGIN 2:s.machucam
  * GROUP: 4.3
- * DATE: 08 / 04 / 21
+ * DATE: 08 / 04 / 22
  */
 
 #ifndef BID_STACK_H

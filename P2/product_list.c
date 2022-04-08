@@ -4,10 +4,94 @@
  * AUTHOR 1: Brais Fernandez Papiri LOGIN 1: brais.papiri
  * AUTHOR 2: Samanta Karolay Machuca Montalvo LOGIN 2:s.machucam
  * GROUP: 4.3
- * DATE: 08 / 04 / 21
+ * DATE: 08 / 04 / 22
  */
 
 #include "product_list.h"
 
+//tList lista de productos ordenada alfabeticamente
+//tItemL datos de un elemento de la lista
+//tPosL posicion de un elemento de la lista de productos
+//LNULL cte usada para indicar posiciones nulas de la lista
 
-/* Write your code here... */
+
+void createEmptyList(tList* L){
+    *L = LNULL;
+}
+
+bool isEmptyList(tList L){
+    if(L== LNULL){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+bool createNode(tPosL* p){
+    *p = malloc(sizeof(**p));
+    return *p !=LNULL;
+}
+
+bool insertItem(tItemL item, tList* L){
+/*
+ * Inserta un elemento en la Lista de forma ordenada
+ * por el campo productId. Devuelve un valor true si el elemento
+ * fue insertado; false en caso contrario.
+ */
+    Lista *nLista;
+    nLista = L * malloc(sizeof (L));
+    nLista ->
+
+}
+
+void deleteAtPosition(tPosL pos, tList L){
+/*
+ * Elimina de la lista el elemento que ocupa la posición indicada.
+PreCD: La posición indicada es una posición válida en la lista y el producto en dicha posición tiene una pila de pujas vacía.
+PostCD: Las posiciones de los elementos de la lista posteriores a la de la posición eliminada pueden haber variado.
+ */
+}
+
+tItemL getItem(tPosL pos, tList L) {                //Devuelve el contenido del elemento de pos
+    return pos->data;
+}
+
+void updateItem(tItemL item, tPosL pos, tList *L) {    //Le asignamos el valor de nuestro item a pos
+    pos->data = d;
+}
+
+tPosL findItem(tProductId d, tList L) {             //Devuelve la posición del primer elemento de la lista que se corresponda con el indicado
+    tPosL p;                                        //o nulo si no existe dicho elemento
+    if (isEmptyList(L))
+        p = LNULL;
+    else {
+        for (p=L; (p!=LNULL)&&(strcmp(p->data.productId,d)!=0); p=p->next);
+        return p;
+    }
+}
+tPosL first(tList L){                       // la lista apunta al primer elemento de ésta
+    return L;
+}
+
+tPosL last(tList L) {                       //la lista devuelve la posición del último elemento
+    tPosL pos;
+    for(pos=L; pos->next != LNULL; pos=pos->next);
+    return pos;
+}
+
+tPosL previous(tPosL pos, tList L) {        //muestra la posición del anterior elemento al de la posición indicada
+                                            //dicha posición está dentro de la lista.
+    tPosL q;
+
+    if(pos==L){
+        q = LNULL;
+    }else{
+        for(q=L; q->next != pos; q=q->next);
+    }
+    return q;
+}
+
+tPosL next(tPosL pos, tList L) {            //devuelve la posición del siguiente elemento de la posición indicada o
+    return pos->next;                      //o devuelve nulo si la posición no tiene siguiente.
+
+}
