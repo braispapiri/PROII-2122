@@ -61,7 +61,7 @@ bool insertItem(tItemL item, tList *L){
     }
 }
 
-void deleteAtPosition(tPosL pos, tList* L) {
+void deleteAtPosition(tPosL p, tList* L) {
 
     tPosL q;
     if (p == *L) {
@@ -84,7 +84,7 @@ tItemL getItem(tPosL pos, tList L) {                //Devuelve el contenido del 
 }
 
 void updateItem(tItemL item, tPosL pos, tList *L) {    //Le asignamos el valor de nuestro item a pos
-    pos->data = d;
+    pos->data = item;
 }
 
 tPosL findItem(tItemL d, tList L) {             //Devuelve la posición del primer elemento de la lista que se corresponda con el indicado
